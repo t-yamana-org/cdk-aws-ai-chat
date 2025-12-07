@@ -15,7 +15,7 @@
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// NOTE: 変更は即時反映されコンテナのリビルドは不要 他パラメータは必要
-	// "forwardPorts": [5173],
+	"forwardPorts": [5173],
 
 	"mounts": [
 		// GitHub用のSSHキー
