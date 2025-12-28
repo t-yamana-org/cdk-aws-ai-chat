@@ -1,0 +1,22 @@
+version: 1
+applications:
+  - appRoot: aws-ai-chat
+    backend:
+      phases:
+        build:
+          commands:
+            - npm install
+            # - npm run build
+    frontend:
+      phases:
+        build:
+          commands:
+            # - npm install
+            - npm run build
+      artifacts:
+        baseDirectory: dist
+        files:
+          - '/*'
+      cache:
+        paths:
+          - node_modules/**/*
