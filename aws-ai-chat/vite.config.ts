@@ -9,7 +9,10 @@ export default defineConfig({
 		globals: true,
 		environment: "jsdom",
 		setupFiles: "./test/setup.ts",
-		include: ["src/**/*.{test,spec}.{js,ts,jsx,tsx}", "test/**/*.{test,spec}.{js,ts,jsx,tsx}"],
+		include: [
+			"src/**/*.{test,spec}.{js,ts,jsx,tsx}",
+			"test/**/*.{test,spec}.{js,ts,jsx,tsx}",
+		],
 	},
 	server: {
 		host: "0.0.0.0", // ホストマシンからアクセス可能にする
