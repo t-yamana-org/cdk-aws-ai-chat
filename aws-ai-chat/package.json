@@ -15,9 +15,10 @@
 		"prepare": "simple-git-hooks"
 	},
 	"simple-git-hooks": {
-		"pre-commit": "npx lint-staged"
+		"pre-commit": "git secrets --pre_commit_hook -- \"$@\" && npx lint-staged"
 	},
 	"lint-staged": {
+		"*": "git secrets --pre_commit_hook",
 		"*.{js,jsx,ts,tsx,json,css,md}": "biome check --write --files-ignore-unknown=true"
 	},
 	"dependencies": {

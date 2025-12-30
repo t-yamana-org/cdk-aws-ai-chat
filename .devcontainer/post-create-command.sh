@@ -9,8 +9,10 @@ cd /tmp/git-secrets && sudo make install
 
 # このリポジトリに git-secrets を設定
 cd /workspaces/cdk-aws-ai-chat
-git secrets --install
 git secrets --register-aws
+
+# lint-staged + git-secrets のセットアップ
+cd aws-ai-chat && npm run prepare
 
 # FIXME: kiro-cli のインストール方法は未確定
 
