@@ -12,7 +12,7 @@ cd /workspaces/cdk-aws-ai-chat
 git secrets --register-aws
 
 # lint-staged + git-secrets のセットアップ
-cd aws-ai-chat && npm run prepare
+cd frontend && npm run prepare
 
 # FIXME: kiro-cli のインストール方法は未確定
 

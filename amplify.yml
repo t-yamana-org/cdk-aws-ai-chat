@@ -1,6 +1,8 @@
+# NOTE: Amplify で GitHub レポジトリをロードする際に
+# 本ファイルは親ディレクトリに配置されていないとロードされない
 version: 1
 applications:
-  - appRoot: aws-ai-chat
+  - appRoot: frontend
     frontend:
       phases:
         build:
