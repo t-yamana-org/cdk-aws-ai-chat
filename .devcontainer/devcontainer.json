@@ -3,15 +3,17 @@
 {
 	"name": "Node.js & TypeScript",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+	"dockerFile": "Dockerfile",
+	// Amplify Gen2 は AMD64 のみサポートしているため指定が必要
+	// "runArgs": ["--platform=linux/amd64"],
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// NOTE: 上記サイトから最新バージョンを確認できる
-	"features": {
-		"ghcr.io/devcontainers/features/git:1": {},
-		"ghcr.io/devcontainers/features/aws-cli:1": {},
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
-	},
+	// "features": {
+	//	"ghcr.io/devcontainers/features/git:1": {},
+	//	"ghcr.io/devcontainers/features/aws-cli:1": {},
+	//	"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	// },
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// NOTE: 変更は即時反映されコンテナのリビルドは不要 他パラメータは必要
