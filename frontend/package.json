@@ -14,8 +14,8 @@
 		"format": "biome format --write .",
 		"prepare": "simple-git-hooks",
 		"amplify:sandbox": "npx ampx sandbox",
-		"amplify:deploy": "npx ampx deploy",
-		"amplify:delete": "npx ampx delete"
+		"amplify:pipeline-deploy": "npx ampx pipeline-deploy",
+		"amplify:delete": "npx ampx sandbox delete"
 	},
 	"simple-git-hooks": {
 		"pre-commit": "git secrets --pre_commit_hook -- \"$@\" && npx lint-staged"
