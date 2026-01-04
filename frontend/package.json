@@ -12,7 +12,10 @@
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
 		"format": "biome format --write .",
-		"prepare": "simple-git-hooks"
+		"prepare": "simple-git-hooks",
+		"amplify:sandbox": "npx ampx sandbox",
+		"amplify:deploy": "npx ampx deploy",
+		"amplify:delete": "npx ampx delete"
 	},
 	"simple-git-hooks": {
 		"pre-commit": "git secrets --pre_commit_hook -- \"$@\" && npx lint-staged"
@@ -22,14 +25,18 @@
 		"*.{js,jsx,ts,tsx,json,css,md}": "biome check --write --files-ignore-unknown=true"
 	},
 	"dependencies": {
+		"@aws-amplify/ui-react": "^6.13.2",
+		"aws-amplify": "^6.15.9",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0"
 	},
 	"devDependencies": {
+		"@aws-amplify/backend": "^1.19.0",
+		"@aws-amplify/backend-cli": "^1.8.1",
 		"@biomejs/biome": "^2.3.10",
 		"@testing-library/jest-dom": "^6.9.1",
 		"@testing-library/react": "^16.3.1",
-		"@types/node": "^24.10.1",
+		"@types/node": "^25.0.3",
 		"@types/react": "^19.2.5",
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react": "^5.1.1",
