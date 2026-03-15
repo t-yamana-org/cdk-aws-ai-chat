@@ -1,5 +1,10 @@
 # NOTE: amplify.yml が /frontend から出ている理由
 # Amplify の GitHub CICD をする際に、レポジトリのルートに配置が期待されているため
+#
+# NOTE: backend セクションと frontend セクションを分ける理由
+# pipeline-deploy は CDK の Lambda バンドリングに Docker を必要とする
+# frontend の build フェーズには Docker がないため、backend セクションで実行する必要がある
+# backend セクションは Amplify のマネージド環境で実行され、Docker が利用可能
 version: 1
 applications:
   - appRoot: frontend
@@ -8,11 +13,13 @@ applications:
         build:
           commands:
             - npm ci
+            - echo "BRANCH=$AWS_BRANCH APP_ID=$AWS_APP_ID"
             - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
     frontend:
       phases:
         build:
           commands:
+            - npm install
             - npm run build
       artifacts:
         baseDirectory: dist
