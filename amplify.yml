@@ -9,6 +9,8 @@ applications:
           commands:
             - npm install
             # 変数は Amplify コンソール上で自動設定されている
+            - echo "BRANCH=$AWS_BRANCH APP_ID=$AWS_APP_ID AMPLIFY_APP_ID=$AMPLIFY_APP_ID"
+            - env | grep -i amplify || true
             - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AMPLIFY_APP_ID
             - npm run build
       artifacts:
