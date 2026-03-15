@@ -5,11 +5,15 @@ applications:
   - appRoot: frontend
     frontend:
       phases:
+        preBuild:
+          commands:
+            - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
+            - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
         build:
           commands:
             - npm install
             # 変数は Amplify コンソール上で自動設定されている
-            - CDK_DOCKER=echo npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+            - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
             - npm run build
       artifacts:
         baseDirectory: dist
