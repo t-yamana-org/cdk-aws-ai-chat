@@ -1,5 +1,5 @@
-# NOTE: Amplify で GitHub レポジトリをロードする際に
-# 本ファイルは親ディレクトリに配置されていないとロードされない
+# NOTE: amplify.yml が /frontend から出ている理由
+# Amplify の GitHub CICD をする際に、レポジトリのルートに配置が期待されているため
 version: 1
 applications:
   - appRoot: frontend
@@ -8,6 +8,8 @@ applications:
         build:
           commands:
             - npm install
+            # 変数は Amplify コンソール上で自動設定されている
+            - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
             - npm run build
       artifacts:
         baseDirectory: dist
